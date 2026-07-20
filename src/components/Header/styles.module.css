@@ -1,0 +1,29 @@
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 40px;
+}
+
+.header {
+  font-size: 2.6rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+}
+
+.header span {
+  color: grey;
+  font-size: 1.4rem;
+}
+
+.newTaskButton {
+  color: white;
+  background-color: rgb(4, 4, 149);
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 10px;
+  border: none;
+  width: 15%;
+  cursor: pointer;
+}

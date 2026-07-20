@@ -1,0 +1,21 @@
+.taskFilters {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.taskFilters button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: grey;
+  cursor: pointer;
+}
+
+.taskFilters button.active {
+  color: rgb(4, 4, 149);
+  border-bottom: 2px solid rgb(4, 4, 149);
+  border-radius: 2px;
+}

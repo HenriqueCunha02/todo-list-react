@@ -1,44 +1,17 @@
-import styles from './styles.module.css';
+import { Container } from '../../components/Container';
+import { Header } from '../../components/Header';
+import { DefaultInput } from '../../components/DefaultInput';
+import { NavFilters } from '../../components/NavFilters';
+import { TaskList } from '../../components/TaskList';
 
 export function Home() {
   return (
-    <div className={styles.container}>
-      <div className={styles.content}>
-        <header className={styles.header}>
-          Minhas Tarefas
-          <span>Organize o que precisa ser feito</span>
-        </header>
-        <button className={styles.newTaskButton}> + Nova Tarefa</button>
-      </div>
-      <form className={styles.inputContainer}>
-        <input
-          type='text'
-          className={styles.defaultInput}
-          placeholder='O que você precisa fazer?'
-        />
-        <button className={styles.inputButton}>Adicionar</button>
-      </form>
-      <div className={styles.taskFilters}>
-        <button className={styles.active}>Todas</button>
-        <button>Pendentes</button>
-        <button>Concluídas</button>
-      </div>
+    <Container>
+      <Header />
+      <DefaultInput />
 
-      <div className={styles.taskList}>
-        <ul>
-          <li>Teste</li>
-          <li>Estudar</li>
-          <li>Comprar Racao</li>
-          <li>Teste</li>
-          <li>Estudar</li>
-          <li>Comprar Racao</li>
-          <li>Teste</li>
-          <li>Estudar</li>
-          <li>Comprar Racao</li>
-        </ul>
-      </div>
-
-      <div className={styles.footer}></div>
-    </div>
+      <NavFilters />
+      <TaskList />
+    </Container>
   );
 }
