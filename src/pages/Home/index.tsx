@@ -3,6 +3,7 @@ import { Header } from '../../components/Header';
 import { DefaultInput } from '../../components/DefaultInput';
 import { NavFilters } from '../../components/NavFilters';
 import { TaskList } from '../../components/TaskList';
+import { Footer } from '../../components/Footer';
 
 export function Home() {
   return (
@@ -12,6 +13,8 @@ export function Home() {
 
       <NavFilters />
       <TaskList />
+
+      <Footer />
     </Container>
   );
 }

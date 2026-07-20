@@ -1,3 +1,4 @@
+import { StarIcon, TrashIcon } from 'lucide-react';
 import styles from './styles.module.css';
 
 export function TaskList() {
@@ -6,39 +7,51 @@ export function TaskList() {
       <ul>
         <li>
           <input type='checkbox' />
-          Teste
+          Ler 20 paginas
+          <div className={styles.icon}>
+            <StarIcon fill='#ffc800' strokeWidth={0.3} />
+            <TrashIcon strokeWidth={0.3} />
+          </div>
         </li>
         <li>
           <input type='checkbox' />
-          Estudar
+          Estudar React
+          <div className={styles.icon}>
+            <StarIcon strokeWidth={0.3} />
+            <TrashIcon strokeWidth={0.3} />
+          </div>
+        </li>
+        <li>
+          <input type='checkbox' />
+          Fazer exercicos
+          <div className={styles.icon}>
+            <StarIcon strokeWidth={0.3} />
+            <TrashIcon strokeWidth={0.3} />
+          </div>
+        </li>
+        <li>
+          <input type='checkbox' />
+          Limpar quarto
+          <div className={styles.icon}>
+            <StarIcon strokeWidth={0.3} />
+            <TrashIcon strokeWidth={0.3} />
+          </div>
+        </li>
+        <li>
+          <input type='checkbox' />
+          Assistar aula de Node.js
+          <div className={styles.icon}>
+            <StarIcon strokeWidth={0.3} />
+            <TrashIcon strokeWidth={0.3} />
+          </div>
         </li>
         <li>
           <input type='checkbox' />
           Comprar Racao
-        </li>
-        <li>
-          <input type='checkbox' />
-          Teste
-        </li>
-        <li>
-          <input type='checkbox' />
-          Estudar
-        </li>
-        <li>
-          <input type='checkbox' />
-          Comprar Racao
-        </li>
-        <li>
-          <input type='checkbox' />
-          Teste
-        </li>
-        <li>
-          <input type='checkbox' />
-          Estudar
-        </li>
-        <li>
-          <input type='checkbox' />
-          Comprar Racao
+          <div className={styles.icon}>
+            <StarIcon strokeWidth={0.3} />
+            <TrashIcon strokeWidth={0.3} />
+          </div>
         </li>
       </ul>
     </div>

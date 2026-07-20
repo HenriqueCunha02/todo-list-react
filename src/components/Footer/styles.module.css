@@ -1,0 +1,21 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  margin: 20px 40px;
+}
+
+.footer span {
+  color: grey;
+  font-weight: bold;
+}
+
+.footer button {
+  color: rgb(4, 4, 149);
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
