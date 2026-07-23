@@ -5,6 +5,7 @@
 }
 
 .header {
+  color: var(--text-default);
   font-size: 2.6rem;
   font-weight: bold;
   display: flex;
@@ -12,13 +13,13 @@
 }
 
 .header span {
-  color: grey;
+  color: var(--text-default);
   font-size: 1.4rem;
 }
 
 .theme {
-  color: white;
-  background-color: rgb(4, 4, 149);
+  color: var(--text-button);
+  background-color: var(--button);
   text-decoration: none;
   border-radius: 10px;
   border: none;

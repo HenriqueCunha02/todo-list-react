@@ -11,7 +11,7 @@ import { useState } from 'react';
 export function Home() {
   const [task, setTask] = useState<Task[]>([]);
 
-  function addTask(title: string) {
+  function handleCreateNewTask(title: string) {
     const newTask: Task = {
       id: Date.now(),
       title,
@@ -25,7 +25,7 @@ export function Home() {
   return (
     <Container>
       <Header />
-      <DefaultInput addTask={addTask} />
+      <DefaultInput addTask={handleCreateNewTask} />
 
       <NavFilters />
       <TaskList tasks={task} />

@@ -10,12 +10,12 @@
   border: none;
   font-size: 1.4rem;
   font-weight: bold;
-  color: grey;
+  color: var(--text-default);
   cursor: pointer;
 }
 
 .taskFilters button.active {
-  color: rgb(4, 4, 149);
-  border-bottom: 2px solid rgb(4, 4, 149);
+  color: var(--button);
+  border-bottom: 2px solid var(--button);
   border-radius: 2px;
 }

@@ -17,9 +17,9 @@ export function DefaultInput({ addTask }: DefaultInputProps) {
   return (
     <form className={styles.inputContainer} onSubmit={handleCreateNewTask}>
       <input
-        type='text'
         value={task}
         onChange={e => setTask(e.target.value)}
+        type='text'
         className={styles.defaultInput}
         placeholder='O que você precisa fazer?'
       />

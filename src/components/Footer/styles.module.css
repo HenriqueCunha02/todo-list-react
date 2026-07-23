@@ -7,16 +7,17 @@
 }
 
 .footer span {
-  color: grey;
+  color: var(--text-default);
   font-weight: bold;
 }
 
 .footer button {
   font-weight: bold;
-  color: rgb(4, 4, 149);
+  color: var(--button);
   border: none;
   background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
