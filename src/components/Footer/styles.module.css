@@ -12,6 +12,7 @@
 }
 
 .footer button {
+  font-weight: bold;
   color: rgb(4, 4, 149);
   border: none;
   background-color: transparent;

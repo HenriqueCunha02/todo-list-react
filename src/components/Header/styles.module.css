@@ -16,14 +16,12 @@
   font-size: 1.4rem;
 }
 
-.newTaskButton {
+.theme {
   color: white;
   background-color: rgb(4, 4, 149);
-  font-size: 1.6rem;
-  font-weight: bold;
   text-decoration: none;
   border-radius: 10px;
   border: none;
-  width: 15%;
+  width: 8%;
   cursor: pointer;
 }

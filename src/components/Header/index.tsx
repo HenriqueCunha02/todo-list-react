@@ -1,3 +1,4 @@
+import { SunIcon } from 'lucide-react';
 import styles from './styles.module.css';
 
 export function Header() {
@@ -7,7 +8,9 @@ export function Header() {
         Minhas Tarefas
         <span>Organize o que precisa ser feito</span>
       </header>
-      <button className={styles.newTaskButton}> + Nova Tarefa</button>
+      <button className={styles.theme}>
+        <SunIcon strokeWidth={3} />
+      </button>
     </div>
   );
 }
