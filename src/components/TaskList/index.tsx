@@ -1,26 +1,17 @@
-import { StarIcon, TrashIcon } from 'lucide-react';
-import styles from './styles.module.css';
 import type { Task } from '../../types/Task';
+import styles from './styles.module.css';
+import { TaskItem } from '../Taskitem';
 
 type TaskListProps = {
   tasks: Task[];
 };
 
 export function TaskList({ tasks }: TaskListProps) {
-  console.log(tasks);
-
   return (
     <div className={styles.taskList}>
       <ul>
         {tasks.map(task => (
-          <li key={task.id}>
-            <input type='checkbox' />
-            {task.title}
-            <div className={styles.icon}>
-              <StarIcon fill='#ffc800' strokeWidth={0.3} />
-              <TrashIcon strokeWidth={0.3} />
-            </div>
-          </li>
+          <TaskItem tasks={task} key={task.id} />
         ))}
       </ul>
     </div>

@@ -1,0 +1,27 @@
+input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: rgb(4, 4, 149);
+  margin-right: 40px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  list-style: none;
+  margin-top: 2px;
+}
+
+.icon {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.icon :first-child {
+  margin-right: 40px;
+}
