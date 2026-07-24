@@ -3,15 +3,16 @@ import styles from './styles.module.css';
 import { TaskItem } from '../Taskitem';
 
 type TaskListProps = {
-  tasks: Task[];
+  task: Task[];
+  onToggleTask: (id: number) => void;
 };
 
-export function TaskList({ tasks }: TaskListProps) {
+export function TaskList({ task, onToggleTask }: TaskListProps) {
   return (
     <div className={styles.taskList}>
       <ul>
-        {tasks.map(task => (
-          <TaskItem tasks={task} key={task.id} />
+        {task.map(task => (
+          <TaskItem task={task} key={task.id} onToggleTask={onToggleTask} />
         ))}
       </ul>
     </div>

@@ -22,13 +22,26 @@ export function Home() {
     setTask(prevState => [...prevState, newTask]);
   }
 
+  function handleToggleTask(id: number) {
+    setTask(prev =>
+      prev.map(task =>
+        task.id === id
+          ? {
+              ...task,
+              completed: !task.completed,
+            }
+          : task,
+      ),
+    );
+  }
+
   return (
     <Container>
       <Header />
       <DefaultInput addTask={handleCreateNewTask} />
 
       <NavFilters />
-      <TaskList tasks={task} />
+      <TaskList task={task} onToggleTask={handleToggleTask} />
 
       <Footer />
     </Container>

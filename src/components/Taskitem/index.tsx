@@ -4,15 +4,16 @@ import type { Task } from '../../types/Task';
 import styles from './styles.module.css';
 
 type TaskItemProps = {
-  tasks: Task;
+  task: Task;
+  onToggleTask: (id: number) => void;
 };
 
-export function TaskItem({ tasks }: TaskItemProps) {
-  console.log(tasks);
+export function TaskItem({ task, onToggleTask }: TaskItemProps) {
+  console.log(task);
   return (
-    <li key={tasks.id}>
-      <input type='checkbox' />
-      {tasks.title}
+    <li>
+      <input type='checkbox' onChange={() => onToggleTask(task.id)} />
+      {task.title}
       <div className={styles.icon}>
         <StarIcon fill='#ffc800' strokeWidth={0.3} />
         <TrashIcon strokeWidth={0.3} />
