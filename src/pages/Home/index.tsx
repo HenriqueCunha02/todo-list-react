@@ -39,6 +39,19 @@ export function Home() {
     setTask(prev => prev.filter(task => id !== task.id));
   }
 
+  function handleFavoriteTask(id: number) {
+    setTask(prev =>
+      prev.map(task =>
+        task.id === id
+          ? {
+              ...task,
+              favorite: !task.favorite,
+            }
+          : task,
+      ),
+    );
+  }
+
   return (
     <Container>
       <Header />
@@ -49,6 +62,7 @@ export function Home() {
         task={task}
         onToggleTask={handleToggleTask}
         onDeleteTask={handleDeleteTask}
+        onFavoriteTask={handleFavoriteTask}
       />
 
       <Footer />

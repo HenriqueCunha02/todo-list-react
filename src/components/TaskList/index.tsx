@@ -6,9 +6,15 @@ type TaskListProps = {
   task: Task[];
   onToggleTask: (id: number) => void;
   onDeleteTask: (id: number) => void;
+  onFavoriteTask: (id: number) => void;
 };
 
-export function TaskList({ task, onToggleTask, onDeleteTask }: TaskListProps) {
+export function TaskList({
+  task,
+  onToggleTask,
+  onDeleteTask,
+  onFavoriteTask,
+}: TaskListProps) {
   return (
     <div className={styles.taskList}>
       <ul>
@@ -18,6 +24,7 @@ export function TaskList({ task, onToggleTask, onDeleteTask }: TaskListProps) {
             key={task.id}
             onToggleTask={onToggleTask}
             onDeleteTask={onDeleteTask}
+            onFavoriteTask={onFavoriteTask}
           />
         ))}
       </ul>

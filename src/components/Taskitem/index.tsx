@@ -7,15 +7,25 @@ type TaskItemProps = {
   task: Task;
   onToggleTask: (id: number) => void;
   onDeleteTask: (id: number) => void;
+  onFavoriteTask: (id: number) => void;
 };
 
-export function TaskItem({ task, onToggleTask, onDeleteTask }: TaskItemProps) {
+export function TaskItem({
+  task,
+  onToggleTask,
+  onDeleteTask,
+  onFavoriteTask,
+}: TaskItemProps) {
   return (
     <li>
       <input type='checkbox' onChange={() => onToggleTask(task.id)} />
       {task.title}
       <div className={styles.icon}>
-        <StarIcon fill='#ffc800' strokeWidth={0.3} />
+        <StarIcon
+          fill='#ffc800'
+          strokeWidth={0.3}
+          onClick={() => onFavoriteTask(task.id)}
+        />
         <TrashIcon strokeWidth={0.3} onClick={() => onDeleteTask(task.id)} />
       </div>
     </li>
