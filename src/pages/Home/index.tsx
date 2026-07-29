@@ -35,13 +35,21 @@ export function Home() {
     );
   }
 
+  function handleDeleteTask(id: number) {
+    setTask(prev => prev.filter(task => id !== task.id));
+  }
+
   return (
     <Container>
       <Header />
       <DefaultInput addTask={handleCreateNewTask} />
 
       <NavFilters />
-      <TaskList task={task} onToggleTask={handleToggleTask} />
+      <TaskList
+        task={task}
+        onToggleTask={handleToggleTask}
+        onDeleteTask={handleDeleteTask}
+      />
 
       <Footer />
     </Container>

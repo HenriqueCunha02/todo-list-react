@@ -22,6 +22,7 @@ li {
   display: flex;
   justify-content: flex-end;
   color: var(--text-default);
+  cursor: pointer;
 }
 
 .icon :first-child {
