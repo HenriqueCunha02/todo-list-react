@@ -1,11 +1,3 @@
-input {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  accent-color: var(--button);
-  margin-right: 40px;
-}
-
 li {
   color: var(--text-default);
   display: flex;
@@ -15,6 +7,14 @@ li {
   box-shadow: var(--box-shadow);
   list-style: none;
   margin-top: 2px;
+}
+
+input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--button);
+  margin-right: 40px;
 }
 
 .icon {
@@ -27,4 +27,17 @@ li {
 
 .icon :first-child {
   margin-right: 40px;
+  transition: transform 0.5s ease;
+}
+
+.icon :first-child:hover {
+  transform: translateY(-2px);
+}
+
+.icon :nth-child(2) {
+  transition: transform 0.5s ease;
+}
+
+.icon :nth-child(2):hover {
+  transform: translateY(-2px);
 }

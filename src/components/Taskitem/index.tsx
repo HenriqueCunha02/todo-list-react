@@ -21,12 +21,8 @@ export function TaskItem({
       <input type='checkbox' onChange={() => onToggleTask(task.id)} />
       {task.title}
       <div className={styles.icon}>
-        <StarIcon
-          fill='#ffc800'
-          strokeWidth={0.3}
-          onClick={() => onFavoriteTask(task.id)}
-        />
-        <TrashIcon strokeWidth={0.3} onClick={() => onDeleteTask(task.id)} />
+        <StarIcon color='#6366f1' onClick={() => onFavoriteTask(task.id)} />
+        <TrashIcon color='#6366f1' onClick={() => onDeleteTask(task.id)} />
       </div>
     </li>
   );

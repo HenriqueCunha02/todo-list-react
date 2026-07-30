@@ -1,5 +1,6 @@
 .taskFilters {
-  margin-top: 20px;
+  margin: 20px 0;
+  min-height: 40px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -13,6 +14,7 @@
   font-weight: bold;
   color: var(--text-default);
   cursor: pointer;
+  padding: 0 0 2px;
 }
 
 .taskFilters button::after {
@@ -30,7 +32,6 @@
 
 .taskFilters button.active {
   color: var(--button);
-  padding-bottom: 2px;
 }
 
 .taskFilters button.active::after {

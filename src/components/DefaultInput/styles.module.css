@@ -12,11 +12,16 @@
   width: 100%;
   background-color: transparent;
   outline: none;
-  border: var(--box-shadow);
+  border: solid 1px transparent;
   border-radius: 10px;
   font-size: 1.6rem;
   padding: 20px 120px 20px 16px;
   box-sizing: border-box;
+  transition: 0.5s ease;
+}
+
+.defaultInput:focus {
+  border: 1px solid var(--button);
 }
 
 .inputButton {
@@ -33,4 +38,13 @@
   top: 50%;
   right: 8px;
   transform: translateY(-50%);
+}
+
+.inputButton:hover {
+  background-color: var(--dark-button);
+  transition: 0.2s;
+}
+
+.inputButton:active {
+  color: var(--dark-button-active);
 }

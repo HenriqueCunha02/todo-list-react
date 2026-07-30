@@ -21,3 +21,12 @@
   justify-content: center;
   cursor: pointer;
 }
+
+.footer button:hover {
+  color: var(--dark-button);
+  transition: 0.2s;
+}
+
+.footer button:active {
+  color: var(--dark-button-active);
+}
