@@ -9,6 +9,9 @@ import type { Task } from '../../types/Task';
 import { useState } from 'react';
 
 export function Home() {
+  type Filter = 'all' | 'pending' | 'completed';
+
+  const [filter, setFilter] = useState<Filter>('all');
   const [task, setTask] = useState<Task[]>([]);
 
   function handleCreateNewTask(title: string) {
@@ -52,14 +55,26 @@ export function Home() {
     );
   }
 
+  const filteredTasks = task.filter(task => {
+    if (filter === 'pending') {
+      return !task.completed;
+    }
+
+    if (filter === 'completed') {
+      return task.completed;
+    }
+
+    return true;
+  });
+
   return (
     <Container>
       <Header />
       <DefaultInput addTask={handleCreateNewTask} />
 
-      <NavFilters />
+      <NavFilters setfilter={setFilter} />
       <TaskList
-        task={task}
+        task={filteredTasks}
         onToggleTask={handleToggleTask}
         onDeleteTask={handleDeleteTask}
         onFavoriteTask={handleFavoriteTask}
