@@ -72,7 +72,7 @@ export function Home() {
       <Header />
       <DefaultInput addTask={handleCreateNewTask} />
 
-      <NavFilters setfilter={setFilter} />
+      <NavFilters setfilter={setFilter} filter={filter} />
       <TaskList
         task={filteredTasks}
         onToggleTask={handleToggleTask}
