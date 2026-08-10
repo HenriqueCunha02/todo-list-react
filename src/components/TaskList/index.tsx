@@ -4,6 +4,7 @@ import { TaskItem } from '../Taskitem';
 
 type TaskListProps = {
   task: Task[];
+  theme: boolean;
   onToggleTask: (id: number) => void;
   onDeleteTask: (id: number) => void;
   onFavoriteTask: (id: number) => void;
@@ -11,6 +12,7 @@ type TaskListProps = {
 
 export function TaskList({
   task,
+  theme,
   onToggleTask,
   onDeleteTask,
   onFavoriteTask,
@@ -20,6 +22,7 @@ export function TaskList({
       <ul>
         {task.map(task => (
           <TaskItem
+            theme={theme}
             task={task}
             key={task.id}
             onToggleTask={onToggleTask}

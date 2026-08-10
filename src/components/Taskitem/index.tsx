@@ -5,6 +5,7 @@ import styles from './styles.module.css';
 
 type TaskItemProps = {
   task: Task;
+  theme: boolean;
   onToggleTask: (id: number) => void;
   onDeleteTask: (id: number) => void;
   onFavoriteTask: (id: number) => void;
@@ -12,6 +13,7 @@ type TaskItemProps = {
 
 export function TaskItem({
   task,
+  theme,
   onToggleTask,
   onDeleteTask,
   onFavoriteTask,
@@ -22,11 +24,16 @@ export function TaskItem({
       {task.title}
       <div className={styles.icon}>
         <StarIcon
-          color='#6366f1'
+          color={!theme ? '#2563eb' : '#6366f1'}
           onClick={() => onFavoriteTask(task.id)}
-          fill={task.favorite === false ? '#6366f1' : 'transparent'}
+          fill={
+            !task.favorite ? (!theme ? '#2563eb' : '#6366f1') : 'transparent'
+          }
         />
-        <TrashIcon color='#6366f1' onClick={() => onDeleteTask(task.id)} />
+        <TrashIcon
+          color={!theme ? '#2563eb' : '#6366f1'}
+          onClick={() => onDeleteTask(task.id)}
+        />
       </div>
     </li>
   );

@@ -10,8 +10,10 @@ import { useState } from 'react';
 
 export function Home() {
   type Filter = 'all' | 'pending' | 'completed' | 'favorite';
+  type Theme = boolean;
 
   const [filter, setFilter] = useState<Filter>('all');
+  const [theme, setTheme] = useState<Theme>(true);
   const [task, setTask] = useState<Task[]>([]);
 
   function handleCreateNewTask(title: string) {
@@ -55,6 +57,11 @@ export function Home() {
     );
   }
 
+  function handleTheme() {
+    document.documentElement.classList.toggle('dark');
+    setTheme(prev => !prev);
+  }
+
   const filteredTasks = task.filter(task => {
     if (filter === 'favorite') {
       return !task.favorite;
@@ -73,11 +80,12 @@ export function Home() {
 
   return (
     <Container>
-      <Header />
+      <Header theme={theme} handleTheme={handleTheme} />
       <DefaultInput addTask={handleCreateNewTask} />
 
       <NavFilters setfilter={setFilter} filter={filter} />
       <TaskList
+        theme={theme}
         task={filteredTasks}
         onToggleTask={handleToggleTask}
         onDeleteTask={handleDeleteTask}
