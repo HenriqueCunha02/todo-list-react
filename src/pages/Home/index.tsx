@@ -64,7 +64,7 @@ export function Home() {
 
   const filteredTasks = task.filter(task => {
     if (filter === 'favorite') {
-      return !task.favorite;
+      return task.favorite;
     }
 
     if (filter === 'pending') {

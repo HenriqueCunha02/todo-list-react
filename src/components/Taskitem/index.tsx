@@ -27,7 +27,7 @@ export function TaskItem({
           color={!theme ? '#2563eb' : '#6366f1'}
           onClick={() => onFavoriteTask(task.id)}
           fill={
-            !task.favorite ? (!theme ? '#2563eb' : '#6366f1') : 'transparent'
+            task.favorite ? (!theme ? '#2563eb' : '#6366f1') : 'transparent'
           }
         />
         <TrashIcon

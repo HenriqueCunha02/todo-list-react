@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 import styles from './styles.module.css';
 
 type DefaultInputProps = {
@@ -11,7 +12,14 @@ export function DefaultInput({ addTask }: DefaultInputProps) {
   function handleCreateNewTask(event: React.FormEvent) {
     event.preventDefault();
 
+    if (task.trim() === '') {
+      toast.error('O nome da tarefa não pode estar vazio!');
+      return;
+    }
+
     addTask(task);
+    setTask('');
+    toast.success('Tarefa adicionada com sucesso!');
   }
 
   return (
@@ -22,7 +30,7 @@ export function DefaultInput({ addTask }: DefaultInputProps) {
         type='text'
         className={styles.defaultInput}
         placeholder='O que você precisa fazer?'
-        onFocus={e => setTask('')}
+        onFocus={() => setTask('')}
       />
       <button className={styles.inputButton}>Adicionar</button>
     </form>
