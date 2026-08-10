@@ -1,10 +1,20 @@
+import type { Task } from '../../types/Task';
 import { TrashIcon } from 'lucide-react';
+
 import styles from './styles.module.css';
 
-export function Footer() {
+type FooterProps = {
+  tasks: Task[];
+};
+
+export function Footer({ tasks }: FooterProps) {
+  const completedTasks = tasks.filter(task => task.completed);
+
   return (
     <div className={styles.footer}>
-      <span>2 de 6 tarefas concluidas</span>
+      <span>
+        {completedTasks.length} de {tasks.length} tarefas concluídas
+      </span>
       <button>
         Limpar concluidas <TrashIcon height={14} />
       </button>

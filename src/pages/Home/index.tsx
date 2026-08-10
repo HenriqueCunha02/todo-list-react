@@ -80,7 +80,7 @@ export function Home() {
         onFavoriteTask={handleFavoriteTask}
       />
 
-      <Footer />
+      <Footer tasks={task} />
     </Container>
   );
 }
