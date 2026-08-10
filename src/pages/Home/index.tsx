@@ -9,7 +9,7 @@ import type { Task } from '../../types/Task';
 import { useState } from 'react';
 
 export function Home() {
-  type Filter = 'all' | 'pending' | 'completed';
+  type Filter = 'all' | 'pending' | 'completed' | 'favorite';
 
   const [filter, setFilter] = useState<Filter>('all');
   const [task, setTask] = useState<Task[]>([]);
@@ -56,6 +56,10 @@ export function Home() {
   }
 
   const filteredTasks = task.filter(task => {
+    if (filter === 'favorite') {
+      return !task.favorite;
+    }
+
     if (filter === 'pending') {
       return !task.completed;
     }

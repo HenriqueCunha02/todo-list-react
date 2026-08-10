@@ -1,6 +1,6 @@
 import styles from './styles.module.css';
 
-type Filter = 'all' | 'pending' | 'completed';
+type Filter = 'all' | 'pending' | 'completed' | 'favorite';
 
 type NavFiltersType = {
   setfilter: (filter: Filter) => void;
@@ -27,6 +27,12 @@ export function NavFilters({ setfilter, filter }: NavFiltersType) {
         onClick={() => setfilter('completed')}
       >
         Concluídas
+      </button>
+      <button
+        className={filter === 'favorite' ? styles.active : ''}
+        onClick={() => setfilter('favorite')}
+      >
+        Favoritas
       </button>
     </nav>
   );
