@@ -74,6 +74,10 @@ export function Home() {
     setTheme(prev => !prev);
   }
 
+  function onDeleteAllTasks() {
+    setTask(prev => prev.filter(task => !task.completed));
+  }
+
   const filteredTasks = task.filter(task => {
     if (filter === 'favorite') {
       return task.favorite;
@@ -104,7 +108,7 @@ export function Home() {
         onFavoriteTask={handleFavoriteTask}
       />
 
-      <Footer tasks={task} />
+      <Footer tasks={task} onDeleteAllTasks={onDeleteAllTasks} />
     </Container>
   );
 }

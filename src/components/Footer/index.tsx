@@ -5,9 +5,10 @@ import styles from './styles.module.css';
 
 type FooterProps = {
   tasks: Task[];
+  onDeleteAllTasks: () => void;
 };
 
-export function Footer({ tasks }: FooterProps) {
+export function Footer({ tasks, onDeleteAllTasks }: FooterProps) {
   const completedTasks = tasks.filter(task => task.completed);
 
   return (
@@ -15,7 +16,7 @@ export function Footer({ tasks }: FooterProps) {
       <span>
         {completedTasks.length} de {tasks.length} tarefas concluídas
       </span>
-      <button>
+      <button onClick={onDeleteAllTasks}>
         Limpar concluidas <TrashIcon height={14} />
       </button>
     </div>
