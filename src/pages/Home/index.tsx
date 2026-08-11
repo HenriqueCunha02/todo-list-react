@@ -6,7 +6,7 @@ import { TaskList } from '../../components/TaskList';
 import { Footer } from '../../components/Footer';
 import type { Task } from '../../types/Task';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function Home() {
   type Filter = 'all' | 'pending' | 'completed' | 'favorite';
@@ -14,7 +14,19 @@ export function Home() {
 
   const [filter, setFilter] = useState<Filter>('all');
   const [theme, setTheme] = useState<Theme>(true);
-  const [task, setTask] = useState<Task[]>([]);
+  const [task, setTask] = useState<Task[]>(() => {
+    const storedTasks = localStorage.getItem('@todo:tasks');
+
+    if (storedTasks) {
+      return JSON.parse(storedTasks);
+    }
+
+    return [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('@todo:tasks', JSON.stringify(task));
+  }, [task]);
 
   function handleCreateNewTask(title: string) {
     const newTask: Task = {
