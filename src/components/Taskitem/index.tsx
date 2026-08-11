@@ -20,7 +20,11 @@ export function TaskItem({
 }: TaskItemProps) {
   return (
     <li>
-      <input type='checkbox' onChange={() => onToggleTask(task.id)} />
+      <input
+        type='checkbox'
+        checked={task.completed}
+        onChange={() => onToggleTask(task.id)}
+      />
       {task.title}
       <div className={styles.icon}>
         <StarIcon
