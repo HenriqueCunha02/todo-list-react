@@ -29,7 +29,7 @@ export function DefaultInput({ addTask }: DefaultInputProps) {
         onChange={e => setTask(e.target.value)}
         type='text'
         className={styles.defaultInput}
-        placeholder='O que você precisa fazer?'
+        placeholder='Digite aqui...'
       />
       <button className={styles.inputButton}>Adicionar</button>
     </form>

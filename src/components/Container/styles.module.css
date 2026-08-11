@@ -3,6 +3,12 @@
   box-shadow: var(--box-shadow);
   max-width: 98rem;
   margin: 6rem auto;
-  padding: 1rem;
+  padding: 1rem 2rem;
   background-color: var(--card);
+}
+
+@media (width <= 525px) {
+  .container {
+    margin: 6rem 10px;
+  }
 }

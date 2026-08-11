@@ -1,7 +1,7 @@
 .headerContent {
   display: flex;
   justify-content: space-between;
-  margin: 20px 40px;
+  margin: 20px 0px;
 }
 
 .header {
@@ -23,7 +23,7 @@ button.theme {
   text-decoration: none;
   border-radius: 10px;
   border: none;
-  width: 8%;
+  width: 70px;
   cursor: pointer;
 }
 
