@@ -1,5 +1,4 @@
 import type { Task } from '../../types/Task';
-import styles from './styles.module.css';
 import { TaskItem } from '../Taskitem';
 
 type TaskListProps = {
@@ -18,7 +17,7 @@ export function TaskList({
   onFavoriteTask,
 }: TaskListProps) {
   return (
-    <div className={styles.taskList}>
+    <div className='taskList'>
       <ul>
         {task.map(task => (
           <TaskItem
