@@ -4,7 +4,7 @@ import { DefaultInput } from '../../components/DefaultInput';
 import { NavFilters } from '../../components/NavFilters';
 import { TaskList } from '../../components/TaskList';
 import { Footer } from '../../components/Footer';
-import type { Task } from '../../types/Task';
+import type { TaskModel } from '../../models/taskModel';
 
 import { useEffect, useState } from 'react';
 
@@ -14,7 +14,7 @@ export function Home() {
 
   const [filter, setFilter] = useState<Filter>('all');
   const [theme, setTheme] = useState<Theme>(true);
-  const [task, setTask] = useState<Task[]>(() => {
+  const [task, setTask] = useState<TaskModel[]>(() => {
     const storedTasks = localStorage.getItem('@todo:tasks');
 
     if (storedTasks) {
@@ -29,7 +29,7 @@ export function Home() {
   }, [task]);
 
   function handleCreateNewTask(title: string) {
-    const newTask: Task = {
+    const newTask: TaskModel = {
       id: Date.now(),
       title,
       completed: false,
