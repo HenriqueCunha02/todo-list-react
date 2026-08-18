@@ -2,24 +2,45 @@ import type { TaskModel } from '../../models/taskModel';
 import { TaskActionTypes, type TaskActionModel } from './taskActions';
 
 export function taskReducer(
-  state: TaskModel,
+  state: TaskModel[],
   action: TaskActionModel,
-): TaskModel {
+): TaskModel[] {
   switch (action.type) {
     case TaskActionTypes.ADD_TASK: {
-      return state;
+      return [...state, action.payload];
     }
 
     case TaskActionTypes.DELETE_TASK: {
-      return state;
+      return state.filter(task => task.id !== action.payload);
     }
 
     case TaskActionTypes.FAVORITE_TASK: {
-      return state;
+      return state.map(task =>
+        task.id === action.payload
+          ? {
+              ...task,
+              favorite: !task.favorite,
+            }
+          : task,
+      );
     }
 
     case TaskActionTypes.CONCLUDE_TASK: {
-      return state;
+      return state.map(task =>
+        task.id === action.payload
+          ? {
+              ...task,
+              completed: !task.completed,
+            }
+          : task,
+      );
     }
+
+    case TaskActionTypes.DELETE_ALL_CONCLUDE: {
+      return state.filter(task => !task.completed);
+    }
+
+    default:
+      return state;
   }
 }

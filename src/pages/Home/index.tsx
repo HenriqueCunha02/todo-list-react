@@ -6,27 +6,22 @@ import { TaskList } from '../../components/TaskList';
 import { Footer } from '../../components/Footer';
 import type { TaskModel } from '../../models/taskModel';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
+import { TaskActionTypes } from '../../contexts/TaskContext/taskActions';
 
 export function Home() {
   type Filter = 'all' | 'pending' | 'completed' | 'favorite';
   type Theme = boolean;
 
+  const { state, dispacth } = useTaskContext();
+
   const [filter, setFilter] = useState<Filter>('all');
   const [theme, setTheme] = useState<Theme>(true);
-  const [task, setTask] = useState<TaskModel[]>(() => {
-    const storedTasks = localStorage.getItem('@todo:tasks');
 
-    if (storedTasks) {
-      return JSON.parse(storedTasks);
-    }
-
-    return [];
-  });
-
-  useEffect(() => {
-    localStorage.setItem('@todo:tasks', JSON.stringify(task));
-  }, [task]);
+  // useEffect(() => {
+  //   localStorage.setItem('@todo:tasks', JSON.stringify(task));
+  // }, [task]);
 
   function handleCreateNewTask(title: string) {
     const newTask: TaskModel = {
@@ -36,37 +31,28 @@ export function Home() {
       favorite: false,
     };
 
-    setTask(prevState => [...prevState, newTask]);
+    dispacth({ type: TaskActionTypes.ADD_TASK, payload: newTask });
   }
 
   function handleToggleTask(id: number) {
-    setTask(prev =>
-      prev.map(task =>
-        task.id === id
-          ? {
-              ...task,
-              completed: !task.completed,
-            }
-          : task,
-      ),
-    );
+    dispacth({
+      type: TaskActionTypes.CONCLUDE_TASK,
+      payload: id,
+    });
   }
 
   function handleDeleteTask(id: number) {
-    setTask(prev => prev.filter(task => id !== task.id));
+    dispacth({
+      type: TaskActionTypes.DELETE_TASK,
+      payload: id,
+    });
   }
 
   function handleFavoriteTask(id: number) {
-    setTask(prev =>
-      prev.map(task =>
-        task.id === id
-          ? {
-              ...task,
-              favorite: !task.favorite,
-            }
-          : task,
-      ),
-    );
+    dispacth({
+      type: TaskActionTypes.FAVORITE_TASK,
+      payload: id,
+    });
   }
 
   function handleTheme() {
@@ -75,10 +61,12 @@ export function Home() {
   }
 
   function onDeleteAllTasks() {
-    setTask(prev => prev.filter(task => !task.completed));
+    dispacth({
+      type: TaskActionTypes.DELETE_ALL_CONCLUDE,
+    });
   }
 
-  const filteredTasks = task.filter(task => {
+  const filteredTasks = state.filter(task => {
     if (filter === 'favorite') {
       return task.favorite;
     }
@@ -108,7 +96,7 @@ export function Home() {
         onFavoriteTask={handleFavoriteTask}
       />
 
-      <Footer tasks={task} onDeleteAllTasks={onDeleteAllTasks} />
+      <Footer tasks={state} onDeleteAllTasks={onDeleteAllTasks} />
     </Container>
   );
 }

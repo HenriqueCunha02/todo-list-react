@@ -1,10 +1,10 @@
 import { StarIcon, TrashIcon } from 'lucide-react';
-import type { Task } from '../../types/Task';
+import type { TaskModel } from '../../models/taskModel';
 
 import styles from './styles.module.css';
 
 type TaskItemProps = {
-  task: Task;
+  task: TaskModel;
   theme: boolean;
   onToggleTask: (id: number) => void;
   onDeleteTask: (id: number) => void;

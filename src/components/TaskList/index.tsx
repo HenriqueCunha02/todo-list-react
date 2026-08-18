@@ -1,8 +1,8 @@
-import type { Task } from '../../types/Task';
+import type { TaskModel } from '../../models/taskModel';
 import { TaskItem } from '../Taskitem';
 
 type TaskListProps = {
-  task: Task[];
+  task: TaskModel[];
   theme: boolean;
   onToggleTask: (id: number) => void;
   onDeleteTask: (id: number) => void;
