@@ -4,11 +4,12 @@ import { DefaultInput } from '../../components/DefaultInput';
 import { NavFilters } from '../../components/NavFilters';
 import { TaskList } from '../../components/TaskList';
 import { Footer } from '../../components/Footer';
+
 import type { TaskModel } from '../../models/taskModel';
+import { TaskActionTypes } from '../../contexts/TaskContext/taskActions';
 
 import { useState } from 'react';
 import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
-import { TaskActionTypes } from '../../contexts/TaskContext/taskActions';
 
 export function Home() {
   type Filter = 'all' | 'pending' | 'completed' | 'favorite';
@@ -18,10 +19,6 @@ export function Home() {
 
   const [filter, setFilter] = useState<Filter>('all');
   const [theme, setTheme] = useState<Theme>(true);
-
-  // useEffect(() => {
-  //   localStorage.setItem('@todo:tasks', JSON.stringify(task));
-  // }, [task]);
 
   function handleCreateNewTask(title: string) {
     const newTask: TaskModel = {
